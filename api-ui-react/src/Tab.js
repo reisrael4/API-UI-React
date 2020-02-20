@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-import './Tab.css';
+import React, { Component } from "react";
+import "./Tab.css";
 
 class Tab extends Component {
-    render() {
-        return (
-          <div className="tabs">
-            <div className="tab">Tab 1</div>
-            <div className="tab">Tab 2</div>
-            <div className="tab">Tab 3</div>
-            <div className="tab">Tab 4</div>
-          </div>
-        );
-    }
+  
+  render() {
+    return (
+      <div className="tabs">
+        <div className="tab">Spirited Away</div>
+        <div className="tab">Howl's Moving Castle</div>
+        <div className="tab">From Up on Poppy Hill</div>
+        <div className="tab">My Neighbor Totoro</div>
+        <div className="tab">Princess Mononoke</div>
+        <div className="tab">Kiki's Delivery Service</div>
+      </div>
+    );
+  }
 }
 
 export default Tab;

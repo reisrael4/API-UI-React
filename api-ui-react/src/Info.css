@@ -1,0 +1,9 @@
+span{
+    color: darkblue;
+    font-weight: 800;
+}
+p{
+    width: 80%;
+    text-align: center;
+    margin: 10px auto;
+}
