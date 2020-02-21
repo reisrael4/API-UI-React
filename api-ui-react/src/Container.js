@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Tab from "./Tab";
 import Info from "./Info";
 import "./Container.css";
@@ -6,7 +6,7 @@ import "./Container.css";
 function Container(props) {
   return (
     <div className="container">
-      <Tab clicker={props.handleClick()} />
+      <Tab clicker={props.handleClick} />
       <Info />
     </div>
   );
