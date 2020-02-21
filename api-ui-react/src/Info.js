@@ -32,6 +32,7 @@ class Info extends Component {
       return (
         <div>
           <h1 className="title">{this.state.films[10].title}</h1>
+          {/* I'm trying to feed the info from films[i] where i=tabIndex when the tab is clicked. */}
           <p className="summary">
             <span>Description: </span>
             {this.state.films[10].description}

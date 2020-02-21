@@ -3,9 +3,9 @@ import "./App.css";
 import Container from "./Container";
 
 handleClick = e => {
-  e.preventDefault();
-  let i = e.target.tabIndex;
-};
+    e.preventDefault();
+    let i = e.target.tabIndex;
+  };
 
 function App() {
   return (
