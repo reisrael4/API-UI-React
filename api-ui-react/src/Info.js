@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "./Info.css";
+import Tab from "./Tab";
+// let i = tabIndex;
 
 class Info extends Component {
-  constructor() {
-    super();
+  constructor(prop) {
+    super(prop);
     this.state = {
-      films: []
+      films: [],
+      tabIndex: Tab.tabIndex
     };
   }
   componentDidMount() {
@@ -19,7 +22,7 @@ class Info extends Component {
       })
       .then(res => {
         this.setState({ films: res });
-        console.log(this.state);
+        console.log(this.state.films);
       });
   };
   render() {
@@ -38,8 +41,8 @@ class Info extends Component {
             {this.state.films[10].director}
           </p>
           <p>
-              <span>Release Date: </span>
-              {this.state.films[10].release_date}
+            <span>Release Date: </span>
+            {this.state.films[10].release_date}
           </p>
         </div>
       );

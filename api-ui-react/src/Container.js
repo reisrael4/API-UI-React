@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import Tab from './Tab';
-import Info from './Info';
-import './Container.css'
+import React, { Component } from "react";
+import Tab from "./Tab";
+import Info from "./Info";
+import "./Container.css";
 
-
-class Container extends Component {
-    render() {
-        return (
-            <div className="container">
-                <Tab />
-                <Info />
-            </div>
-        );
-    }
+function Container(props) {
+  return (
+    <div className="container">
+      <Tab clicker={props.handleClick()} />
+      <Info />
+    </div>
+  );
 }
 
 export default Container;
