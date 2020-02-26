@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
 import Container from "./Container";
+import Info from "./Info";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      films: [],
-      i: ""
+      films: null,
+      tabSelected: "10",
+      idSelected: ""
     };
   }
   componentDidMount() {
@@ -22,16 +24,37 @@ class App extends Component {
       });
   }
   handleClick = e => {
-    e.preventDefault();
+    console.log(e.target);
+    this.setState({ tabSelected: e.target.value, idSelected: e.target.id });
+  };
 
-    this.setState({ i: e.target.tabIndex });
+  showMovie = () => {
+    return this.state.films
+      ? this.state.films.map(i => {
+          if (this.films[i] === this.state.tabSelected) {
+            return (
+              <Info
+                title={this.state.films[this.state.idSelected].title}
+                description={
+                  this.state.films[this.state.idSelected].description
+                }
+                director={this.state.films[this.state.idSelected].director}
+                release_date={
+                  this.state.films[this.state.idSelected].release_date
+                }
+              />
+            );
+          }
+          return <Info />;
+        })
+      : "";
   };
 
   render() {
     return (
       <div className="App">
         <header>Some heading, I don't know.</header>
-        <Container clicker={this.handleClick} i={this.state.i} />
+        <Container clicker={this.handleClick} i={this.state.idSelected} />
       </div>
     );
   }
