@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Container from "./Container";
+import Tab from "./Tab";
 import Info from "./Info";
 
 class App extends Component {
@@ -8,8 +8,8 @@ class App extends Component {
     super();
     this.state = {
       films: null,
-      tabSelected: "10",
-      idSelected: ""
+      idSelected: '',
+      tabSelected: "1"
     };
   }
   componentDidMount() {
@@ -24,29 +24,29 @@ class App extends Component {
       });
   }
   handleClick = e => {
-    console.log(e.target);
-    this.setState({ tabSelected: e.target.value, idSelected: e.target.id });
+    console.log(e.target.id);
+    this.setState({ idSelected: e.target.id, tabSelected: e.target.value});
+    this.showMovie()
+    
   };
 
   showMovie = () => {
     return this.state.films
       ? this.state.films.map(i => {
-          if (this.films[i] === this.state.tabSelected) {
+          if (this.state.films[i].id === this.state.idSelected) {
             return (
               <Info
-                title={this.state.films[this.state.idSelected].title}
+                title={this.state.films[i].idSelected.title}
                 description={
-                  this.state.films[this.state.idSelected].description
+                  this.state.films[i].idSelected.description
                 }
-                director={this.state.films[this.state.idSelected].director}
+                director={this.state.films[i].idSelected.director}
                 release_date={
-                  this.state.films[this.state.idSelected].release_date
-                }
-              />
+                  this.state.films[i].idSelected.release_date
+                } key={i}/>
             );
           }
-          return <Info />;
-        })
+      })
       : "";
   };
 
@@ -54,7 +54,10 @@ class App extends Component {
     return (
       <div className="App">
         <header>Some heading, I don't know.</header>
-        <Container clicker={this.handleClick} i={this.state.idSelected} />
+        <div className="container">
+          <Tab clicker={this.handleClick} />
+          <Info />
+        </div>
       </div>
     );
   }

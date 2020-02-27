@@ -7,48 +7,48 @@ function Tab(props) {
       <div
         className="tab"
         id="dc2e6bd1-8156-4886-adff-b39e6043af0c"
-        value="1"
-        onClick={props.handleClick}
+        value={1}
+        onClick={props.clicker}
       >
         Spirited Away
-      </div>
+     </div>
       <div
         className="tab"
         id="cd3d059c-09f4-4ff3-8d63-bc765a5184fa"
-        value="2"
-        onClick={props.handleClick}
+        value={2}
+        onClick={props.clicker}
       >
         Howl's Moving Castle
       </div>
       <div
         className="tab"
         id="45db04e4-304a-4933-9823-33f389e8d74d"
-        value="3"
-        onClick={props.handleClick}
+        value={3}
+        onClick={props.clicker}
       >
         From Up on Poppy Hill
       </div>
       <div
         className="tab"
         id="58611129-2dbc-4a81-a72f-77ddfc1b1b49"
-        value="4"
-        onClick={props.handleClick}
+        value={4}
+        onClick={props.clicker}
       >
         My Neighbor Totoro
       </div>
       <div
         className="tab"
         id="0440483e-ca0e-4120-8c50-4c8cd9b965d6"
-        value="5"
-        onClick={props.handleClick}
+        value={5}
+        onClick={props.clicker}
       >
         Princess Mononoke
       </div>
       <div
         className="tab"
         id="0440483e-ca0e-4120-8c50-4c8cd9b965d6"
-        value="6"
-        onClick={props.handleClick}
+        value={6}
+        onClick={props.clicker}
       >
         Kiki's Delivery Service
       </div>

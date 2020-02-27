@@ -10,3 +10,10 @@ header{
   font-size: 36px;
   font-weight: 800;
 }
+
+.container{
+    height: 500px;
+    width: 1000px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
