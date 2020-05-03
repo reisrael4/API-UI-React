@@ -5,18 +5,18 @@ class Info extends Component {
   render() {
     return (
       <div>
-        <h1 className="title">{this.props.title}</h1>
+        <h1 className="title">{this.props.film.title}</h1>
         <p className="summary">
           <span>Description: </span>
-           {this.props.description} 
+          {this.props.film.description}
         </p>
         <p className="director">
           <span>Director: </span>
-           {this.props.director} 
+          {this.props.film.director}
         </p>
         <p>
           <span>Release Date: </span>
-           {this.props.release_date}
+          {this.props.film.release_date}
         </p>
       </div>
     );

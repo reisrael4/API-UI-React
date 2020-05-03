@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       films: null,
       idSelected: null,
+      film: null,
     };
   }
   componentDidMount() {
@@ -30,38 +31,18 @@ class App extends Component {
     // this.showMovie();
   };
 
+// tab has access to this function
+// selects film, finds its information
+// set film to state, pass film to info as props
+// render the below <Info> in the info.js file
+
   showMovie = () => {
     console.log(this.state.idSelected);
-
-    // return (this.state.films.map(film => {
-    //   // console.log(film.id);
-    //   if (film.id === this.state.idSelected) {
-    //         return (
-    //           <Info
-    //             title={film.title}
-    //             description={
-    //               film.description
-    //             }
-    //             director={film.director}
-    //             release_date={
-    //               film.release_date
-    //             } key={film}/>
-    // )}}))
 
     return (this.state.idSelected
       ? this.state.films.map(film => {
           if (film.id === this.state.idSelected) {            
-            return (
-              <Info
-                title={film.title}
-                description={
-                  film.description
-                }
-                director={film.director}
-                release_date={
-                  film.release_date
-                } key={film}/>
-            );
+            this.setState({film: film})
           }
       })
       : "");
@@ -73,7 +54,7 @@ class App extends Component {
         <header>Some heading, I don't know.</header>
         <div className="container">
           <Tab clicker={this.handleClick} />
-          <Info />
+          {this.state.film ? <Info film={this.state.film}/> : ""}
         </div>
       </div>
     );
