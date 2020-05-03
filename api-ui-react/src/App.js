@@ -8,46 +8,63 @@ class App extends Component {
     super();
     this.state = {
       films: null,
-      idSelected: '',
-      tabSelected: "1"
+      idSelected: null,
     };
   }
   componentDidMount() {
     let url = "https://ghibliapi.herokuapp.com/films";
     fetch(url)
-      .then(res => {
+      .then((res) => {
         return res.json();
       })
-      .then(res => {
+      .then((res) => {
         this.setState({ films: res });
         console.log(this.state.films);
       });
   }
-  handleClick = e => {
+  handleClick = (e) => {
     console.log(e.target.id);
-    this.setState({ idSelected: e.target.id, tabSelected: e.target.value});
-    this.showMovie()
-    
+    this.setState({ idSelected: e.target.id }, () => {
+      this.showMovie();
+    });
+    // this.showMovie();
   };
 
   showMovie = () => {
-    return this.state.films
-      ? this.state.films.map(i => {
-          if (this.state.films[i].id === this.state.idSelected) {
+    console.log(this.state.idSelected);
+
+    // return (this.state.films.map(film => {
+    //   // console.log(film.id);
+    //   if (film.id === this.state.idSelected) {
+    //         return (
+    //           <Info
+    //             title={film.title}
+    //             description={
+    //               film.description
+    //             }
+    //             director={film.director}
+    //             release_date={
+    //               film.release_date
+    //             } key={film}/>
+    // )}}))
+
+    return (this.state.idSelected
+      ? this.state.films.map(film => {
+          if (film.id === this.state.idSelected) {            
             return (
               <Info
-                title={this.state.films[i].idSelected.title}
+                title={film.title}
                 description={
-                  this.state.films[i].idSelected.description
+                  film.description
                 }
-                director={this.state.films[i].idSelected.director}
+                director={film.director}
                 release_date={
-                  this.state.films[i].idSelected.release_date
-                } key={i}/>
+                  film.release_date
+                } key={film}/>
             );
           }
       })
-      : "";
+      : "");
   };
 
   render() {
